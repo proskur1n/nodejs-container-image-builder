@@ -319,6 +319,8 @@ export class RegistryClient {
                 },
                 (err: Error, res: Response, body: Buffer) => {
                   if (err) return reject(err);
+                  console.log("status was", res.statusCode)
+                  console.log(res.headers);
                   if (res.statusCode !== 204 && res.statusCode !== 202) {
                     return reject(new Error(
                         'unexpected status code ' + res.statusCode +
