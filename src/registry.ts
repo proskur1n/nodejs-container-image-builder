@@ -256,6 +256,7 @@ export class RegistryClient {
             // header. docker-upload-uuid see
             // https://github.com/opencontainers/distribution-spec/pull/38 for
             // context (note from jonjohnson@)
+            console.log(res)
             console.log(res.headers);
             if (!res.headers.location) {
               return reject(new Error(
