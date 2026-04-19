@@ -256,6 +256,7 @@ export class RegistryClient {
             // header. docker-upload-uuid see
             // https://github.com/opencontainers/distribution-spec/pull/38 for
             // context (note from jonjohnson@)
+            console.log(res.headers);
             if (!res.headers.location) {
               return reject(new Error(
                   'did not get location header to complete upload from upload post.'));
@@ -406,6 +407,19 @@ export class RegistryClient {
               .toString('base64');
     }
   }
+
+  // private getUploadLocation(headers): URL {
+  //   if (headers.location) {
+  //     // TODO: This doesn't work for relative URLs.
+  //     return new URL(headers.location);
+  //   }
+
+
+  //   return reject(new Error(
+  //       'did not get location header to complete upload from upload post.'));
+
+  //           let uploadLocation = ;
+  // }
 
   // so there is a generic way to auth with all v2 registries
   // POST registry/v2/
