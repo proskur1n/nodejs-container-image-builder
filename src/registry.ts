@@ -256,8 +256,9 @@ export class RegistryClient {
             // header. docker-upload-uuid see
             // https://github.com/opencontainers/distribution-spec/pull/38 for
             // context (note from jonjohnson@)
-            console.log(res)
+            console.log(res.statusCode, res.statusMessage);
             console.log(res.headers);
+            console.log("body: " + body);
             if (!res.headers.location) {
               return reject(new Error(
                   'did not get location header to complete upload from upload post.'));
