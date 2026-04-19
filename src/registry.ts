@@ -396,6 +396,11 @@ export class RegistryClient {
   }
 
   private authHeader() {
+    const h = this._authHeader();
+    console.log("auth", h);
+    return h;
+  }
+  private _authHeader() {
     if (!this._auth) {
       console.log("no auth")
       return undefined;
