@@ -397,12 +397,16 @@ export class RegistryClient {
 
   private authHeader() {
     if (!this._auth) {
+      console.log("no auth")
       return undefined;
     }
 
     if (this._auth.token) {
+      console.log("bearer")
+
       return `Bearer ${this._auth.token}`;
     } else {
+      console.log("basic")
       return 'Basic ' +
           Buffer.from(this._auth.Username + ':' + this._auth.Secret)
               .toString('base64');
